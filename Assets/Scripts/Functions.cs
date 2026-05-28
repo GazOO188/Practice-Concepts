@@ -199,7 +199,7 @@ public class Functions : MonoBehaviour
     public void ApplyBuff(float baseValue, float Percent)
     {
         
-        health += baseValue * (1+ Percent/100f);
+        health += baseValue * (1 + Percent/100f);
     
     
     

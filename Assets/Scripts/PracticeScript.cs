@@ -472,7 +472,7 @@ public class PracticeScript : MonoBehaviour
         for(int i = 0; i < TrackEnemyHealthValues.Length; i++)
         {
             
-            Debug.Log("Enemy:" + i + "has" + TrackEnemyHealthValues[i] + "health");
+            //Debug.Log("Enemy:" + i + "has" + TrackEnemyHealthValues[i] + "health");
 
             if(TrackEnemyHealthValues[i] < 50)
             {

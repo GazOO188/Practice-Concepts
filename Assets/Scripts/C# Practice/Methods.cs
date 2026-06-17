@@ -26,6 +26,9 @@ public class Methods : MonoBehaviour
     public bool IsDead;
 
     public bool IsNear;
+
+
+    public Rigidbody rb;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -99,6 +102,27 @@ public class Methods : MonoBehaviour
     }
 
 
+
+    //METHOD FOR JUMPING//
+    public void ApplyJump()
+    {
+
+       // if (Input.GetKeyDown(Space))
+       // {
+            
+           // rb.AddForce(Vector3.Up * 5.2f);
+
+
+
+
+       // }
+
+
+
+    }
+
+
+    //BOOL METHOD FOR DETERMINING IF ENEMY IS CLOSE TO PLAYER//
     public bool IsNearby(Vector2 enemy, Vector2 playerPos)
     {
     Vector2 dir = playerPos - enemy;
@@ -110,6 +134,12 @@ public class Methods : MonoBehaviour
 
     return false;
     }
+
+
+
+
+    
+
 
 
 

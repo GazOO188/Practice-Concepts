@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -67,6 +66,20 @@ public class Classes : MonoBehaviour
             //THIS LINE CLAMPS THE HEALTH SO IT DOSENT GO BELOW 0 INTO NEGATIVE VALUES//
             health = Mathf.Clamp(health, 0, Maxhealth);
 
+
+
+            if(health <= 0)
+            {
+                
+                health = 0;
+
+
+                Debug.Log("dead");
+
+
+            }
+
+
         
         }
 
@@ -103,7 +116,6 @@ public class Classes : MonoBehaviour
 
         //THIS FUNCTION IS FOR APPLYING DAMAGE BUFF//
 
-
         public void ApplyDamageBuff(float Percent)
         {
             
@@ -113,7 +125,20 @@ public class Classes : MonoBehaviour
         
         }
 
- 
+
+        public void Die()
+        {
+            
+
+
+
+
+
+        }
+
+
+
+
    
     }
 
@@ -261,7 +286,7 @@ public class Classes : MonoBehaviour
    public class PlayerStats
    {
         
-    public Dictionary<string, int> Stats = new Dictionary<string, int>();
+   // public Dictionary<string, int> Stats = new Dictionary<string, int>();
 
 
     //THIS IS A CONSTRUCTOR THAT AUTOMATICALLY RUNS WHEN YOU CREATE A OBJECT FROM THIS CLASS//
@@ -273,19 +298,19 @@ public class Classes : MonoBehaviour
     public PlayerStats()
     {
 
-        Stats = new Dictionary<string,int>();  
+      //  Stats = new Dictionary<string,int>();  
 
-        Stats["Health"] = 0;
+      //  Stats["Health"] = 0;
 
 
 
         //STATS.Keys -> GIVES YOU ONLY KEYS OF THE DICTIONARY//
-        foreach(var key in Stats.Keys)
-        {
+       // foreach(var key in Stats.Keys)
+        //{
 
-            Stats[key] = 0;
+            //Stats[key] = 0;
                 
-        }
+       // }
 
 
 
@@ -303,10 +328,122 @@ public class Classes : MonoBehaviour
    
    
    }
+
+
+   //PART 2: ON CLASSES//
+
+    // A CLASS IS A BLUEPRINT FOR CREATING AN OBJECT//
+
+    // 1) AN OBJECT IS AN INSTANCE OF A CLASS:
+
+        //EX: Player player1 = new Player();
+              //Player player2 = new Player();
+
+    // 1A) EACH OBJECT HAS ITS OWN DATA
+
+
+    //CLASS ANATOMY:
+
+    //1) FIELDS -> STORE DATA
    
+    //2) METHODS -> PERFORM ACTIONS
+
+
+    //3) CONSTRUCTOR -> SETS UP DATA AUTOMAITICALLY//
    
+   public class PlayerType
+  {
+    // FIELDS
+    public int health;
+
+    // POPERTIES
+    public int Health { get; set; }
+
+    // CONSTRUCTOR//
+    public PlayerType()
+     {
+
+
+        Health = 100;
+
+
+    }
+
+
+    public PlayerType(int Health)
+    {
+            
+        health = Health;
+
+
+
+    }
+
+    // METHODS
+    public void Move()
+    {
+    }
+
+    // EVENTS
+    public event Action OnDeath;
+}
+   
+
+
+//CLASS FOR A DOG//
+
+public class Dog
+{
     
 
+   // FIELDS//
+    private string name;
+
+    private int Age;
+
+    private float weight; 
+
+ 
+    
+
+
+    public Dog(string Custom, int age, float Weight)
+     {
+            
+
+        name = Custom;
+
+        Age = age;
+
+        weight = Weight;
+
+
+
+     }
+
+
+     //FUNCTION FOR BARKING//
+
+
+     public void Bark()
+     {
+            
+        Debug.Log("Bark");
+
+
+
+     }
+
+
+
+
+ }
+    
+
+
+    public Player P1 = new Player();
+
+    public Dog Kane = new Dog("Kane", 7, 105);
 
 
     
@@ -315,14 +452,15 @@ public class Classes : MonoBehaviour
     {
 
         //MAKE A PLAYER OBJECT FROM THE PLAYER CLASS//
+        P1.TakeDamage(100);
 
-        Player player1 = new Player();
-        
-        
-        player1.TakeDamage(2);
 
-        
-        player1.ApplyDamageBuff(20f);
+        //MAKE A DOG OBJECT FROM TH DOG CLASS//
+
+        //Kane.Bark();
+
+
+
 
 
 

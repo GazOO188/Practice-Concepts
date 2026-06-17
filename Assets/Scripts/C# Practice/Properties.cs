@@ -27,42 +27,49 @@ public class Properties : MonoBehaviour
 
     //TO CREATE A PROPERTY//
 
-    public int PlayerHealth
+
+
+    private int PlayerHealth = 100;
+
+
+    public int health
     {
 
         get
         {
             
-            return Health; 
+            return PlayerHealth;
 
 
         }
 
 
-        //SET IS FOR SETTING THE VALUE YOU CAN WRITE YOUR IF STATEMENTS IN SET
-    
         set
         {
             
-            //VALUE MEANS THE NEW VALUE BEING ASSIGNED//
-           // Health = value;
+            PlayerHealth = value;
 
 
-            if(Health <= 0)
+            PlayerHealth = Mathf.Clamp(value, 0, 100);
+
+
+            if(PlayerHealth <= 0)
             {
                 
-            Debug.Log("Dead");
+
+                //Die();
 
 
 
             }
 
 
-           Health = Mathf.Clamp(value, 0, 100);
-
-
 
         }
+
+
+
+
     }
 
 

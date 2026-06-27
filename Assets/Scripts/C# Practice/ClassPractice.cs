@@ -106,5 +106,30 @@ public class ClassPractice : MonoBehaviour
         {
             Debug.Log("Player died");
         }
+
+
+        public virtual void Attack()
+        {
+            
+            Debug.Log("Attack");
+
+
+
+        }
+
+
+
+
+
+        //CHILDREN CLASSES CAN INHERIT ALL OF THIS INCLIDUING THE FIELDS ABOVE LIKE:
+
+
+        // 1) HEALTH
+
+        // 2) MAXHEALTH
+
+        // 3) CURRENTWEAPON
     }
+
+
 }
